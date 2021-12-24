@@ -30,41 +30,11 @@ namespace Stickers
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.TodoPanel = new System.Windows.Forms.Panel();
-            this.DataGrid = new System.Windows.Forms.DataGridView();
             this.TodoBtn = new System.Windows.Forms.Button();
             this.DoneBtn = new System.Windows.Forms.Button();
-            this.ControlsPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.PinBtn = new System.Windows.Forms.Button();
-            this.UpdateBtn = new System.Windows.Forms.Button();
-            this.Settings = new System.Windows.Forms.Button();
             this.Aborted = new System.Windows.Forms.Button();
             this.Tip = new System.Windows.Forms.ToolTip(this.components);
-            this.TodoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
-            this.ControlsPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // TodoPanel
-            // 
-            this.TodoPanel.AutoSize = true;
-            this.TodoPanel.Controls.Add(this.DataGrid);
-            this.TodoPanel.Location = new System.Drawing.Point(0, 75);
-            this.TodoPanel.Name = "TodoPanel";
-            this.TodoPanel.Size = new System.Drawing.Size(300, 353);
-            this.TodoPanel.TabIndex = 0;
-            // 
-            // DataGrid
-            // 
-            this.DataGrid.AllowUserToOrderColumns = true;
-            this.DataGrid.BackgroundColor = System.Drawing.SystemColors.Desktop;
-            this.DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGrid.Location = new System.Drawing.Point(0, 0);
-            this.DataGrid.Name = "DataGrid";
-            this.DataGrid.RowTemplate.Height = 25;
-            this.DataGrid.Size = new System.Drawing.Size(250, 350);
-            this.DataGrid.TabIndex = 0;
             // 
             // TodoBtn
             // 
@@ -91,52 +61,6 @@ namespace Stickers
             this.DoneBtn.TabIndex = 2;
             this.DoneBtn.Text = "Done";
             this.DoneBtn.UseVisualStyleBackColor = true;
-            // 
-            // ControlsPanel
-            // 
-            this.ControlsPanel.Controls.Add(this.PinBtn);
-            this.ControlsPanel.Controls.Add(this.UpdateBtn);
-            this.ControlsPanel.Controls.Add(this.Settings);
-            this.ControlsPanel.Location = new System.Drawing.Point(180, 12);
-            this.ControlsPanel.Name = "ControlsPanel";
-            this.ControlsPanel.Size = new System.Drawing.Size(120, 42);
-            this.ControlsPanel.TabIndex = 3;
-            // 
-            // PinBtn
-            // 
-            this.PinBtn.FlatAppearance.BorderSize = 0;
-            this.PinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PinBtn.Image = ((System.Drawing.Image)(resources.GetObject("PinBtn.Image")));
-            this.PinBtn.Location = new System.Drawing.Point(3, 3);
-            this.PinBtn.Name = "PinBtn";
-            this.PinBtn.Size = new System.Drawing.Size(32, 32);
-            this.PinBtn.TabIndex = 0;
-            this.Tip.SetToolTip(this.PinBtn, "置顶");
-            this.PinBtn.UseVisualStyleBackColor = true;
-            // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.FlatAppearance.BorderSize = 0;
-            this.UpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdateBtn.Image = ((System.Drawing.Image)(resources.GetObject("UpdateBtn.Image")));
-            this.UpdateBtn.Location = new System.Drawing.Point(41, 3);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(32, 32);
-            this.UpdateBtn.TabIndex = 1;
-            this.Tip.SetToolTip(this.UpdateBtn, "更新");
-            this.UpdateBtn.UseVisualStyleBackColor = true;
-            // 
-            // Settings
-            // 
-            this.Settings.FlatAppearance.BorderSize = 0;
-            this.Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Settings.Image = ((System.Drawing.Image)(resources.GetObject("Settings.Image")));
-            this.Settings.Location = new System.Drawing.Point(79, 3);
-            this.Settings.Name = "Settings";
-            this.Settings.Size = new System.Drawing.Size(32, 32);
-            this.Settings.TabIndex = 2;
-            this.Tip.SetToolTip(this.Settings, "设置\r\n");
-            this.Settings.UseVisualStyleBackColor = true;
             // 
             // Aborted
             // 
@@ -166,34 +90,24 @@ namespace Stickers
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(300, 450);
             this.Controls.Add(this.Aborted);
-            this.Controls.Add(this.ControlsPanel);
             this.Controls.Add(this.DoneBtn);
             this.Controls.Add(this.TodoBtn);
-            this.Controls.Add(this.TodoPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.Opacity = 0.6D;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "TodoTable";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
-            this.TodoPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).EndInit();
-            this.ControlsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel TodoPanel;
-        private System.Windows.Forms.DataGridView DataGrid;
         private System.Windows.Forms.Button TodoBtn;
         private System.Windows.Forms.Button DoneBtn;
-        private System.Windows.Forms.FlowLayoutPanel ControlsPanel;
-        private System.Windows.Forms.Button PinBtn;
-        private System.Windows.Forms.Button UpdateBtn;
-        private System.Windows.Forms.Button Settings;
         private System.Windows.Forms.Button Aborted;
         private System.Windows.Forms.ToolTip Tip;
     }

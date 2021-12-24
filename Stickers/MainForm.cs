@@ -14,6 +14,7 @@ namespace Stickers
 {
     public partial class MainForm : Form
     {
+        public readonly Color MainFormBackColor= SystemColors.Desktop;
         public MainForm()
         {
             InitializeComponent();
@@ -24,14 +25,20 @@ namespace Stickers
             TodoBtn.FlatAppearance.BorderColor = BackColor;
             DoneBtn.FlatAppearance.BorderColor = BackColor;
             Aborted.FlatAppearance.BorderColor = BackColor;
-            PinBtn.FlatAppearance.BorderColor = BackColor;
-            UpdateBtn.FlatAppearance.BorderColor = BackColor;
-            Settings.FlatAppearance.BorderColor = BackColor;
             #endregion
         }
-        void test()
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
-            
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    Close();
+                    break;
+                default:
+                    //MessageBox.Show($"KeyPress:{e.KeyCode}");
+                    break;
+            }
         }
 
         [DllImport("user32.dll")]//拖动无窗体的控件
